@@ -8,7 +8,7 @@
       - GoogleSigin SDK, Firebase SDK, Facebook SDK, AppsFlyer SDK
       - Grpc Framework (GRPCClient, ProtoBuf, ProtoRPC, RxLibrary, ...)
       - Download at : (https://drive.google.com/file/d/1bLdr7t9aOD05W5nR4l_vESndFj47gsdt/view?usp=sharing)
-  - Ios version support: 11+
+  - Ios version support: 13+
   
 ### FEATURES:
   - Login: Authenticate people with their my server ID, Google and Facebook credentials.
@@ -18,7 +18,7 @@
 
 # Try It Out
 
-**Download the official version: [click here](https://github.com/gosusdk/ios-gamosdk/releases)**
+**Download the official version: [click here](https://github.com/gosusdk/ios-gamegasdk/releases)**
 * GoogleService-Info.plist: send via mail
 * Install the following: App Tracking Transparency framework only available starting from Xcode 12 or later-The SDK supports iOS11+
 
@@ -123,8 +123,6 @@
 ### Configure ItsSDK in your project (default info.plist)
 - Configure ItsSDK module tracking into .plist file (default: info.plist)*. IN the <string> tag, keys config will be provided privately via email
   ```xml
-	  <key>ItsMode</key>
-	  <string>TEST</string>
 	  <key>ItsSigningKey</key>
 	  <string>sample_value</string>
 	  <key>ItsWriteKey</key>
@@ -133,8 +131,6 @@
 ### Configure AirBidge in your project (default info.plist)
 - Configure AirBidgeSDK module tracking into .plist file (default: info.plist)*. IN the <string> tag, keys config will be provided privately via email
   ```xml
-	  <key>AirbAppEnv</key>
-	  <string></string>
 	  <key>AirbAppName</key>
 	  <string>sample_value</string>
 	  <key>AirbAppToken</key>

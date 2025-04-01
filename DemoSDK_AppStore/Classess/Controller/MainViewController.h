@@ -27,6 +27,7 @@
 @property (retain, nonatomic) IBOutlet UIButton *btn_report;
 @property (retain, nonatomic) IBOutlet UIButton *btn_clear;
 @property (retain, nonatomic) IBOutlet UIButton *btn_IAP;
+@property (retain, nonatomic) IBOutlet UIButton *btn_showTopup;
 @property (retain, nonatomic) IBOutlet UILabel  *lblName;
 @property (retain, nonatomic) IBOutlet UITextField  *edtTokenPush;
 

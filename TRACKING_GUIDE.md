@@ -31,7 +31,7 @@ Recommended In-app Events in the Gaming
    - Parameters:
       - `userId`: The ID of the user who completed the registration.
     ```objectivec
-    [GTrackingManager completeRegistration:(NSString *)userId];
+    [[GTrackingManager sharedInstance] completeRegistration:(NSString *)userId];
     ```
     **NOTE**: This event is already built into the SDK, you don't need to actively call it.
 2. **Login**
@@ -41,7 +41,7 @@ Recommended In-app Events in the Gaming
       - `userName`: The username of the user.
       - `email`: The email of the user.
     ```objectivec
-    [GTrackingManager login:(NSString *)userId userName:(NSString *)userName email:(NSString *)email];
+    [[GTrackingManager sharedInstance] login:(NSString *)userId userName:(NSString *)userName email:(NSString *)email];
     ```
     **NOTE**: This event is already built into the SDK, you don't need to actively call it.
 3. **Create New Character**
@@ -51,7 +51,7 @@ Recommended In-app Events in the Gaming
         - `charId`: The ID of the character.
         - `charName`: The name of the character.
     ```objectivec
-    [GTrackingManager createNewCharacter:(NSString *)serverInfo charId:(NSString *)charId charName:(NSString *)charName];
+    [[GTrackingManager sharedInstance] createNewCharacter:(NSString *)serverInfo charId:(NSString *)charId charName:(NSString *)charName];
     ```    
 4. **Enter Game**
     - This event tracks when a user enters the game with a specific character.
@@ -61,7 +61,7 @@ Recommended In-app Events in the Gaming
         - `charName`: The name of the character.
         - `serverInfo`: Server information.
     ```objectivec
-    [GTrackingManager enterGame:(NSString *)userId charId:(NSString *)charId charName:(NSString *)charName serverInfo:(NSString *)serverInfo];
+    [[GTrackingManager sharedInstance] enterGame:(NSString *)userId charId:(NSString *)charId charName:(NSString *)charName serverInfo:(NSString *)serverInfo];
     ``` 
 5. **Start Tutorial**
     - This event tracks when a user starts the tutorial.
@@ -71,7 +71,7 @@ Recommended In-app Events in the Gaming
         - `charName`: The name of the character.
         - `serverInfo`: Server information.
     ```objectivec
-    [GTrackingManager startTutorial:(NSString *)userId charId:(NSString *)charId charName:(NSString *)charName serverInfo:(NSString *)serverInfo];
+    [[GTrackingManager sharedInstance] startTutorial:(NSString *)userId charId:(NSString *)charId charName:(NSString *)charName serverInfo:(NSString *)serverInfo];
     ```
 6. **Complete Tutorial**
     - This event tracks when a user completes the tutorial.
@@ -81,7 +81,7 @@ Recommended In-app Events in the Gaming
         - `charName`: The name of the character.
         - `serverInfo`: Server information.
     ```objectivec
-    [GTrackingManager completeTutorial:(NSString *)userId charId:(NSString *)charId charName:(NSString *)charName serverInfo:(NSString *)serverInfo];
+    [[GTrackingManager sharedInstance] completeTutorial:(NSString *)userId charId:(NSString *)charId charName:(NSString *)charName serverInfo:(NSString *)serverInfo];
     ```
 7. **Checkout**
     - This event tracks when a user completes a checkout item.
@@ -92,7 +92,7 @@ Recommended In-app Events in the Gaming
         - `currency`: The currency of the transaction(USD/VND).
         - `customerId`: The ID of the user.
     ```objectivec
-    [GTrackingManager checkout:(NSString *)orderId productId:(NSString *)productId amount:(NSString *)amount currency:(NSString *)currency customerId:(NSString *)customerId];
+    [[GTrackingManager sharedInstance] checkout:(NSString *)orderId productId:(NSString *)productId amount:(NSString *)amount currency:(NSString *)currency customerId:(NSString *)customerId];
     ```
    **NOTE**: This event is already built into the SDK, you don't need to actively call it.
 8. **Purchase**
@@ -104,7 +104,7 @@ Recommended In-app Events in the Gaming
         - `currency`: The currency of the transaction.
         - `customerId`: The ID of the user.
     ```objectivec
-    [GTrackingManager purchase:(NSString *)orderId productId:(NSString *)productId amount:(NSString *)amount currency:(NSString *)currency customerId:(NSString *)customerId];
+    [[GTrackingManager sharedInstance] purchase:(NSString *)orderId productId:(NSString *)productId amount:(NSString *)amount currency:(NSString *)currency customerId:(NSString *)customerId];
     ```
     - Note: This event is already built into the SDK, you don't need to actively call it.
 9.  **Level Up**
@@ -114,7 +114,7 @@ Recommended In-app Events in the Gaming
         - `serverInfo`: Server information.
         - `level`: The new level achieved by the user.
     ```objectivec
-    [GTrackingManager levelUp:(NSString *)charId serverInfo:(NSString *)serverInfo level:(NSInteger)level];
+    [[GTrackingManager sharedInstance] levelUp:(NSString *)charId serverInfo:(NSString *)serverInfo level:(NSInteger)level];
     ```
 10. **VIP Level**
     - This event tracks when a user achieves a VIP level.
@@ -123,7 +123,7 @@ Recommended In-app Events in the Gaming
         - `serverInfo`: Server information.
         - `vipLevel`: The new VIP level achieved by the user.
     ```objectivec
-    [GTrackingManager vipUp:(NSString *)charId serverInfo:(NSString *)serverInfo vipLevel:(NSInteger)vipLevel];
+    [[GTrackingManager sharedInstance] vipUp:(NSString *)charId serverInfo:(NSString *)serverInfo vipLevel:(NSInteger)vipLevel];
     ```
 11. **Use Item**
     - This event tracks when a user uses an item.
@@ -134,7 +134,7 @@ Recommended In-app Events in the Gaming
         - `itemId`: The ID of the item.
         - `quantity`: The quantity of the item used.
     ```objectivec
-    [GTrackingManager useItem:(NSString *)userId charId:(NSString *)charId serverInfo:(NSString *)serverInfo itemId:(NSString *)itemId quantity:(NSInteger)quantity];
+    [[GTrackingManager sharedInstance] useItem:(NSString *)userId charId:(NSString *)charId serverInfo:(NSString *)serverInfo itemId:(NSString *)itemId quantity:(NSInteger)quantity];
     ```
 12. **Track Activity Result**
     - This event tracks the result of a user's activity.
@@ -145,7 +145,7 @@ Recommended In-app Events in the Gaming
         - `activityId`: The ID of the activity.
         - `activityResult`: The result of the activity.
     ```objectivec
-    [GTrackingManager trackActivityResult:(NSString *)userId charId:(NSString *)charId serverInfo:(NSString *)serverInfo activityId:(NSString *)activityId activityResult:(NSString *)activityResult];
+    [[GTrackingManager sharedInstance] trackActivityResult:(NSString *)userId charId:(NSString *)charId serverInfo:(NSString *)serverInfo activityId:(NSString *)activityId activityResult:(NSString *)activityResult];
     ```
 13. **Custom Event**
     - This event tracks custom events defined by the developer.
@@ -156,12 +156,12 @@ Recommended In-app Events in the Gaming
     /* example: 
         jsonObject =  {"key": "value", "key2": "value2"} }
     */
-    [GTrackingManager trackCustomEvent:(NSString *)eventName jsonObject:(NSDictionary *)jsonObject];
+    [[GTrackingManager sharedInstance] trackCustomEvent:(NSString *)eventName jsonObject:(NSDictionary *)jsonObject];
     ```
 14. **Logout Event**
     - This function tracks when a user logs out.
     - Parameters: None
     ```objectivec
-    [GTrackingManager logout];
+    [[GTrackingManager sharedInstance] logout];
     ```
     **NOTE**: This event is already built into the SDK, you don't need to actively call it.

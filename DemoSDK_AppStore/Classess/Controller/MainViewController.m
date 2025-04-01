@@ -11,7 +11,8 @@
 #import "MainViewController.h"
 #import "GinSDK.h"
 
-@interface MainViewController ()<LoginDelegate, LogoutDelegate,IAPDelegate>
+@interface MainViewController ()<LoginDelegate, LogoutDelegate,IAPDelegate, TopupDelegate>
+
 
 @end
 
@@ -50,7 +51,7 @@
             [self.btn_IAP setHidden:NO];
             
             [self.btn_clear setTitle:@"(9) Logout" forState:UIControlStateNormal];
-            
+            [self.btn_showTopup setHidden:NO];
             [self callGTrackingExample];
         }
     };
@@ -108,6 +109,7 @@
     [_btn_clear setHidden:YES];
     [_btn_IAP setHidden:YES];
     [_aiv_loading stopAnimating];
+    [_btn_showTopup setHidden:YES];
     //
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(displayFCMToken:) name:@"FCMToken" object:nil];
     //    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(OrientationDidChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
@@ -279,6 +281,7 @@
     [_btn_shareVideo setHidden:YES];
     [_btn_clear setHidden:YES];
     [_btn_IAP setHidden:YES];
+    [_btn_showTopup setHidden:YES];
     [[GinSDK sharedInstance] IDSignOut:nil];
     [[GinSDK sharedInstance] showSignInView:self andResultDelegate:self];
 }
@@ -366,4 +369,29 @@
 {
     [self.view endEditing:YES];
 }
+
+#pragma Click Show Topup
+- (IBAction) show_Topup:(id)sender
+{
+    //NSLog(@"TOANTEST: Show topup");
+    WebTopupInfo *topupInfo = [WebTopupInfo alloc];
+    topupInfo.characterId =@"1000381";
+    topupInfo.serverId = @"1";
+    topupInfo.characterName = @"SasikoYasu";
+    [[GinSDK sharedInstance] showTopup: topupInfo andMainView: self andTopupDelegate: self];
+    
+}
+
+#pragma TopUpFinish Delegate
+- (void)TopupFinish {
+    NSLog(@"TOANTEST: Topup Finish");
+    // Show alert message on the main thread
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Topup Finish!" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alert addAction:okAction];
+        [self presentViewController:alert animated:YES completion:nil];
+    });
+}
+
 @end
