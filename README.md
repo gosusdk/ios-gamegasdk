@@ -7,7 +7,7 @@
   - Third-party framework: 
       - GoogleSigin SDK, Firebase SDK, Facebook SDK, AppsFlyer SDK
       - Grpc Framework (GRPCClient, ProtoBuf, ProtoRPC, RxLibrary, ...)
-      - Download at : (https://drive.google.com/file/d/1bLdr7t9aOD05W5nR4l_vESndFj47gsdt/view?usp=sharing)
+      - Download at : (https://drive.google.com/file/d/1DyK3fjfzwnsAsRT_g31erzECcbUkNs2F/view?usp=sharing)
   - Ios version support: 13+
   
 ### FEATURES:
